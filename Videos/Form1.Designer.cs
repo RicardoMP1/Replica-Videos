@@ -35,12 +35,16 @@
             label2 = new Label();
             textBox2 = new TextBox();
             button2 = new Button();
+            label3 = new Label();
+            label4 = new Label();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(550, 49);
+            button1.Location = new Point(426, 171);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -60,14 +64,15 @@
             label1.AutoSize = true;
             label1.Location = new Point(181, 49);
             label1.Name = "label1";
-            label1.Size = new Size(71, 15);
+            label1.Size = new Size(13, 15);
             label1.TabIndex = 2;
-            label1.Text = "Parámetro 1";
+            label1.Text = "a";
+            label1.Click += label1_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(302, 176);
+            dataGridView1.Location = new Point(182, 234);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(336, 187);
             dataGridView1.TabIndex = 3;
@@ -77,9 +82,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(181, 94);
             label2.Name = "label2";
-            label2.Size = new Size(71, 15);
+            label2.Size = new Size(13, 15);
             label2.TabIndex = 5;
-            label2.Text = "Parámetro 2";
+            label2.Text = "c";
             // 
             // textBox2
             // 
@@ -90,7 +95,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(683, 213);
+            button2.Location = new Point(567, 234);
             button2.Name = "button2";
             button2.Size = new Size(75, 38);
             button2.TabIndex = 6;
@@ -98,11 +103,47 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(182, 132);
+            label3.Name = "label3";
+            label3.Size = new Size(18, 15);
+            label3.TabIndex = 7;
+            label3.Text = "m";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(181, 171);
+            label4.Name = "label4";
+            label4.Size = new Size(19, 15);
+            label4.TabIndex = 8;
+            label4.Text = "x0";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(273, 132);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(100, 23);
+            textBox3.TabIndex = 9;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(273, 171);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(100, 23);
+            textBox4.TabIndex = 10;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox4);
+            Controls.Add(textBox3);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(textBox2);
@@ -126,5 +167,9 @@
         private Label label2;
         private TextBox textBox2;
         private Button button2;
+        private Label label3;
+        private Label label4;
+        private TextBox textBox3;
+        private TextBox textBox4;
     }
 }

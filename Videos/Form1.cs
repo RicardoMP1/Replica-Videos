@@ -13,21 +13,35 @@ namespace Videos{
         {
 
             // Paso 0: Condición de vacío
-            if (textBox1.Text.Equals("") || textBox2.Text.Equals(""))
+            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") || textBox4.Text.Equals(""))
             {
                 MessageBox.Show("Los números tienen que ser MAYOR que cero, NO VACÍOS");
                 return;
             }
 
             // Paso 1: Inicialización de Parámetros
-            int totalValores = Convert.ToInt32(textBox1.Text);
-            int valorMuestra = Convert.ToInt32(textBox2.Text);
+            int a = Convert.ToInt32(textBox1.Text);
+            int c = Convert.ToInt32(textBox2.Text);
+            int m = Convert.ToInt32(textBox3.Text);
+            int x0 = Convert.ToInt32(textBox4.Text);
+
+            // Paso 1.2: Condiciones
+
+            if (a <= 0 || c <= 0 || x0 <= 0){
+                MessageBox.Show("Los valores de a, c y x0 tienen que ser mayores a CERO");
+                return;
+            }
+
+            if (m <= x0 || m <= c || m <= a){
+                MessageBox.Show("El valor de m tiene que ser mayor a los valores de a, c, y x0");
+                return;
+            }
 
             // Paso 2: Declarar clase algortimo genético
             AlgoritmoSimulacion algoritmo = new AlgoritmoSimulacion();
 
             // Paso 3: Llamar método principal
-            List<int> listaEnteros = algoritmo.GenerarValores(totalValores);
+            List<int> listaEnteros = algoritmo.GeneradorCongruencial(a, c, m, x0);
 
             // Paso 4: Llenar el Grid
             llenarGrid(listaEnteros);
@@ -86,8 +100,14 @@ namespace Videos{
             exportarExcel.Visible = true;
         }
 
-        private void button2_Click(object sender, EventArgs e){
+        private void button2_Click(object sender, EventArgs e)
+        {
             DescargaExcel(dataGridView1);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

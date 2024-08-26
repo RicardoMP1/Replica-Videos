@@ -18,5 +18,27 @@ namespace Videos.Algoritmos
             }
             return listaSalida;
         }
+
+        public List<int> GeneradorCongruencial(int a, int c, int m, int x0){
+            
+            List<int> listaSalida = new List<int>();
+            bool Entrar = true;
+            int xi = x0;
+            while (Entrar){
+
+                xi = (a * xi + c) % m;
+                if (!listaSalida.Contains(xi)){
+
+                    listaSalida.Add((xi + 1) % m);
+                }
+                else{
+
+                    Entrar = false;
+                }
+            }
+
+
+            return listaSalida;
+        }
     }
 }
