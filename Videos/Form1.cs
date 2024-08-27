@@ -87,7 +87,24 @@ namespace Videos{
         }
 
         private void button2_Click(object sender, EventArgs e){
-            DescargaExcel(dataGridView1);
+            // Paso 0: Condición de vacío
+            if (textBox1.Text.Equals(""))
+            {
+                MessageBox.Show("Los números tienen que ser MAYOR que cero, NO VACÍOS");
+                return;
+            }
+
+            // Paso 1: Inicialización de Parámetros
+            int totalValores = Convert.ToInt32(textBox1.Text);
+
+            // Paso 2: Declarar clase algortimo genético
+            AlgoritmoSimulacion algoritmo = new AlgoritmoSimulacion();
+
+            // Paso 3: Llamar método principal
+            List<int> listaEnteros = algoritmo.AlgoritmoCuadradoMedio(totalValores);
+
+            // Paso 4: Llenar el Grid
+            llenarGrid(listaEnteros);
         }
     }
 }

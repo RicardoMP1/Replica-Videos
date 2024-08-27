@@ -33,6 +33,7 @@ namespace Videos.Algoritmos
                 string subcadena = cadena.Substring(inicio, 4);
                 pseudoaleatorio = Convert.ToInt32(subcadena);
             }
+            return listaSalida;
         }
     }
 }
