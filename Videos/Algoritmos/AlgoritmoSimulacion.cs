@@ -18,5 +18,18 @@ namespace Videos.Algoritmos
             }
             return listaSalida;
         }
+        public List<int> AlgoritmoCuadradoMedio(int n)
+        {
+            List<int> listaSalida = new List<int>();
+            int pseudoaleatorio = n;
+            n = n * n;
+            string cadena = n.ToString();
+            int longitud = cadena.Length;
+            int mitad = longitud / 2;
+            int inicio = mitad - 2;
+            string subcadena = cadena.Substring(inicio, 4);
+            pseudoaleatorio = Convert.ToInt32(subcadena);
+
+        }
     }
 }
