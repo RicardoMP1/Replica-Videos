@@ -18,22 +18,56 @@ namespace Videos.Algoritmos
             }
             return listaSalida;
         }
-        public List<int> AlgoritmoCuadradoMedio(int n)
+        public List<int> AlgoritmoCuadradoMedio(int semilla)
         {
             List<int> listaSalida = new List<int>();
-            int pseudoaleatorio = n;
-            while (!listaSalida.Contains(pseudoaleatorio))
+            int mitadCadena = 0;
+            int pseudoaleatorio = 0;
+            int cuadrado = semilla * semilla;
+            string cadena = cuadrado.ToString();
+            if (cadena.Length <= 2) //Checamos si la longitud de la cadena tiene suficientes digitos
             {
-                listaSalida.Add(pseudoaleatorio);
-                int cuadrado = pseudoaleatorio * pseudoaleatorio;
-                string cadena = cuadrado.ToString();
-                int longitud = cadena.Length;
-                int mitad = longitud / 2;
-                int inicio = mitad - 2;
-                string subcadena = cadena.Substring(inicio, 4);
-                pseudoaleatorio = Convert.ToInt32(subcadena);
+                throw new ArgumentException("No se tienen suficientes digitos");
             }
-            return listaSalida;
+            string cadenaModificada = cadena.Substring(1, cadena.Length - 2);
+            mitadCadena = cadenaModificada.Length / 2;
+            if (cadenaModificada.Length <= 3) // Nos aseguramos que cadena modificada tiene los suficientes digitos para hacer la operacion
+            {
+                pseudoaleatorio = Convert.ToInt32(cadenaModificada);
+            }
+            else
+            {
+                pseudoaleatorio = Convert.ToInt32(cadenaModificada.Substring(mitadCadena - 2, 3));
+            }
+            listaSalida.Add(pseudoaleatorio);
+            while (true)
+            {
+                cuadrado = pseudoaleatorio * pseudoaleatorio;
+                cadena = cuadrado.ToString();
+                if (pseudoaleatorio == 0) //Si nuestro pseudoaleatorio es 0, finaliza el algoritmo
+                {
+                    return listaSalida;
+                }
+                cadenaModificada = cadena.Substring(1, cadena.Length - 2);
+                mitadCadena = cadenaModificada.Length / 2;
+                if (cadenaModificada.Length <= 3) // Nos aseguramos que cadena modificada tiene los suficientes digitos para hacer la operacion
+                {
+                    pseudoaleatorio = Convert.ToInt32(cadenaModificada);
+                }
+                else
+                {
+                    pseudoaleatorio = Convert.ToInt32(cadenaModificada.Substring(mitadCadena - 2, 3));
+                }
+                if (listaSalida.Contains(pseudoaleatorio))
+                {
+                    return listaSalida;
+                }
+                else
+                {
+                    listaSalida.Add(pseudoaleatorio);
+                }
+            }
+
         }
     }
 }
