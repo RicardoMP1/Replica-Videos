@@ -29,7 +29,7 @@ namespace Videos.Algoritmos
                 xi = (a * xi + c) % m;
                 if (!listaSalida.Contains(xi)){
 
-                    listaSalida.Add((xi + 1) % m);
+                    listaSalida.Add(xi);
                 }
                 else{
 
