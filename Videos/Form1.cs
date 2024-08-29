@@ -13,20 +13,19 @@ namespace Videos{
         {
 
             // Paso 0: Condición de vacío
-            if (textBox1.Text.Equals("") || textBox2.Text.Equals("") || textBox3.Text.Equals("") || textBox4.Text.Equals(""))
+            if (textBox1.Text.Equals("") || textBox2.Text.Equals(""))
             {
                 MessageBox.Show("Los números tienen que ser MAYOR que cero, NO VACÍOS");
                 return;
             }
 
             // Paso 1: Inicialización de Parámetros
-            int a = Convert.ToInt32(textBox1.Text);
-            int c = Convert.ToInt32(textBox2.Text);
-            int m = Convert.ToInt32(textBox3.Text);
-            int x0 = Convert.ToInt32(textBox4.Text);
+            int n = Convert.ToInt32(textBox1.Text);
+            int n2 = Convert.ToInt32(textBox2.Text);
+
 
             // Paso 1.2: Condiciones
-
+            /*
             if (a <= 0 || c <= 0 || x0 <= 0){
                 MessageBox.Show("Los valores de a, c y x0 tienen que ser mayores a CERO");
                 return;
@@ -36,12 +35,13 @@ namespace Videos{
                 MessageBox.Show("El valor de m tiene que ser mayor a los valores de a, c, y x0");
                 return;
             }
+            */
 
             // Paso 2: Declarar clase algortimo genético
             AlgoritmoSimulacion algoritmo = new AlgoritmoSimulacion();
 
             // Paso 3: Llamar método principal
-            List<int> listaEnteros = algoritmo.GeneradorCongruencial(a, c, m, x0);
+            List<int> listaEnteros = algoritmo.GeneradorProductoMedio(n, n2);
 
             // Paso 4: Llenar el Grid
             llenarGrid(listaEnteros);
@@ -53,11 +53,13 @@ namespace Videos{
             // Paso 0: Indicar el número de columnas
             string numeroColumna1 = "1";
             string numeroColumna2 = "2";
+            
 
             // Paso 1: Determina la cantidad de columnas
             dataGridView1.Columns.Clear();
             dataGridView1.Columns.Add(numeroColumna1, "Id");
             dataGridView1.Columns.Add(numeroColumna2, "Valor");
+           
 
             // Paso 2: Recorres el grid para cada fila llenas los valores aleatorios
             for (int i = 0; i < lista.Count; i++)

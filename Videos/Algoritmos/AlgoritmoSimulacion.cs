@@ -45,26 +45,48 @@ namespace Videos.Algoritmos
         {
 
             List<int> listaSalida = new List<int>();
-            bool Entrar = true;
-            int xi = x0;
-            while (Entrar)
+            //bool Entrar = true;
+            int rn = n;
+            int rn1 = n2;
+            
+            while (!listaSalida.Contains(rn*rn1))
             {
-
-                xi = (a * xi + c) % m;
-                if (!listaSalida.Contains(xi))
+                //listaSalida.Add(rn*rn1);
+                int productoMedio = rn * rn1;
+                string cadena = productoMedio.ToString();
+                int longitud = cadena.Length;
+                cadena = cadena.Substring(1, longitud-2);
+                longitud = cadena.Length;
+                string num1 = "0";
+                string num2 = "0";
+                if (cadena.Length >= 4)
                 {
-
-                    listaSalida.Add((xi + 1) % m);
+                    num1 = cadena.Substring(0, 3);
+                    num2 = cadena.Substring(longitud - 3, longitud-1);
                 }
                 else
                 {
-
-                    Entrar = false;
+                    num1 = cadena;
+                    num2 = "0";
                 }
+               
+                rn = rn1;
+                if(num1 == "")
+                {
+                    rn1 = 0;
+                }
+                else
+                {
+                    rn1 = Convert.ToInt32(num1);
+                }
+                
+                listaSalida.Add(rn1);
+
+
+
+    
             }
-
-
-            return listaSalida;
+            return listaSalida ;
         }
     }
 }
