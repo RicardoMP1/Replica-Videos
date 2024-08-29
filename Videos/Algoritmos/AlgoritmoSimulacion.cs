@@ -50,22 +50,22 @@ namespace Videos.Algoritmos
                 }
                 if (cadena.Length <= 2) //Checamos si la longitud de la cadena tiene suficientes digitos
                 {
-                    pseudoaleatorio = Convert.ToInt32(cadenaModificada);
+                    pseudoaleatorio = Convert.ToInt32(cadena);
                 }
                 else
                 {
                     cadenaModificada = cadena.Substring(1, cadena.Length - 2);
                     mitadCadena = cadenaModificada.Length / 2;
+                    if (cadenaModificada.Length <= 3) // Nos aseguramos que cadena modificada tiene los suficientes digitos para hacer la operacion
+                    {
+                        pseudoaleatorio = Convert.ToInt32(cadenaModificada);
+                    }
+                    else
+                    {
+                        pseudoaleatorio = Convert.ToInt32(cadenaModificada.Substring(mitadCadena - 2, 3));
+                    }
                 }
 
-                if (cadenaModificada.Length <= 3) // Nos aseguramos que cadena modificada tiene los suficientes digitos para hacer la operacion
-                {
-                    pseudoaleatorio = Convert.ToInt32(cadenaModificada);
-                }
-                else
-                {
-                    pseudoaleatorio = Convert.ToInt32(cadenaModificada.Substring(mitadCadena - 2, 3));
-                }
                 if (listaSalida.Contains(pseudoaleatorio))
                 {
                     return listaSalida;
